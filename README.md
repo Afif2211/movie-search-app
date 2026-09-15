@@ -1,16 +1,30 @@
-# React + Vite
+# Marquee — Movie Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A movie search application that finds films in real time using the OMDb API, with a debounced search input to avoid unnecessary network requests on every keystroke.
 
-Currently, two official plugins are available:
+## Live Demo
+https://movie-search-app-mauve-xi.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Debounced search (500ms) using `useRef` and `useEffect`
+- Live results with poster, title, and release year
+- Loading, empty, and no-results states handled separately
+- Animated Three.js spotlight background with drifting dust particles
+- Fully responsive layout
 
-## React Compiler
+## Built with
+- React (hooks: `useState`, `useEffect`, `useRef`)
+- Three.js
+- OMDb API
+- Plain CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What I learned
+This project was my hands-on introduction to debouncing — a pattern used in most real-world search interfaces (like Google's live search) to prevent firing an API call on every single keystroke. Instead, the app waits until the user pauses typing before searching, which is implemented by storing a timer ID in a `useRef` and clearing/resetting it on every input change. Because `useRef` doesn't trigger a re-render when updated (unlike `useState`), it's the right tool for storing a value like a timer ID that the component needs to remember between renders without needing to display it.
 
-## Expanding the ESLint configuration
+## Running locally
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+You'll need your own OMDb API key from [omdbapi.com](https://www.omdbapi.com/apikey.aspx) — add it in `MovieSearch.jsx` where the fetch URL is built.
