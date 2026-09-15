@@ -1,0 +1,234 @@
+/* MovieSearch.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=Source+Code+Pro:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.movie-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0e0b10;
+  font-family: 'Inter', sans-serif;
+  color: #f3ede2;
+  padding-bottom: 32px;
+}
+
+.movie-brand {
+  font-size: 13px;
+  color: #9c93a3;
+  margin: 20px 0 0;
+  text-align: center;
+}
+
+.movie-brand strong {
+  color: #e0b465;
+  font-weight: 600;
+}
+
+.movie-hero {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.spotlight-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.movie-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.movie-hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0 0 28px;
+  letter-spacing: -0.01em;
+}
+
+.movie-search-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 100px;
+  padding: 15px 24px;
+  color: #f3ede2;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.movie-search-input::placeholder {
+  color: #6f6779;
+}
+
+.movie-search-input:focus {
+  border-color: #e0b465;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.movie-search-input:focus-visible {
+  outline: 2px solid #e0b465;
+  outline-offset: 2px;
+}
+
+.movie-about {
+  width: 100%;
+  max-width: 640px;
+  padding: 0 24px 40px;
+  text-align: center;
+}
+
+.movie-about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+
+.movie-about p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b8b0c2;
+  margin: 0;
+}
+
+.movie-about code {
+  font-family: 'Source Code Pro', monospace;
+  background: rgba(224, 180, 101, 0.12);
+  color: #e0b465;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.movie-results {
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 24px;
+}
+
+.movie-status {
+  text-align: center;
+  color: #9c93a3;
+  font-size: 15px;
+  padding: 40px 0;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-poster-wrap {
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #17131b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.movie-card:hover .movie-poster-wrap {
+  border-color: #e0b465;
+  transform: translateY(-3px);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-poster-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f6779;
+  font-size: 13px;
+  text-align: center;
+  padding: 12px;
+}
+
+.movie-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.movie-year {
+  font-size: 13px;
+  color: #9c93a3;
+  margin: 0;
+}
+
+.movie-footer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 32px 24px 0;
+}
+
+.movie-tech-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: #9c93a3;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+@media (max-width: 480px) {
+  .movie-hero-content h1 {
+    font-size: 30px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+  }
+}
+
+
+.movie-app-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #e0b465;
+  margin: 0 0 8px;
+}
